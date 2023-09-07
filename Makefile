@@ -1,7 +1,8 @@
 NAME = push_swap
-CFLAGS = -Wall -Wextra -Werror -g -MMD
+CFLAGS = -Wall -Wextra -Werror -MMD 
 PUSH = push_swap.h
-SRC = main.c input.c utils.c index.c nodes.c free.c
+SRC = main.c input.c index.c nodes.c free.c \
+		push.c radix_sort.c rotate.c swap.c sort.c sort_utils.c \
 
 OBJECTS = $(SRC:.c=.o)
 DEPS = $(patsubst %.o,%.d,$(OBJECTS))

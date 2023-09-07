@@ -6,7 +6,7 @@
 /*   By: plinscho <plinscho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:25:42 by plinscho          #+#    #+#             */
-/*   Updated: 2023/09/06 17:09:27 by plinscho         ###   ########.fr       */
+/*   Updated: 2023/09/07 15:03:12 by plinscho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	index_init(t_node **stack_a)
 	{
 		node->index = index++;
 		node = next_min(stack_a);
-	}	
+	}
 }
 
 static	t_node	*next_min(t_node **stack_a)
@@ -41,7 +41,7 @@ static	t_node	*next_min(t_node **stack_a)
 	{
 		while (head)
 		{
-			if ((head->index == -1) && (!min_f || head->index < min->value))
+			if ((head->index == -1) && (!min_f || head->value < min->value))
 			{
 				min = head;
 				min_f = 1;

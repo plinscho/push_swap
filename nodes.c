@@ -6,7 +6,7 @@
 /*   By: plinscho <plinscho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 15:07:35 by plinscho          #+#    #+#             */
-/*   Updated: 2023/09/06 18:12:01 by plinscho         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:01:59 by plinscho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,36 @@ t_node	*ft_lstlast(t_node *head)
 			return (tmp);
 	}
 	return (tmp);
+}
+
+t_node	*node_max(t_node **stack)
+{
+	t_node	*tmp;
+	t_node	*max;
+
+	tmp = *stack;
+	max = tmp;
+	while (tmp)
+	{
+		if (tmp->value > max->value)
+			max = tmp;
+		tmp = tmp->next;
+	}
+	return (max);
+}
+
+t_node	*node_min(t_node **stack)
+{
+	t_node	*min;
+	t_node	*tmp;
+
+	tmp = *stack;
+	min = tmp;
+	while (tmp)
+	{
+		if (tmp->value < min->value)
+			min = tmp;
+		tmp = tmp->next;
+	}
+	return (min);
 }

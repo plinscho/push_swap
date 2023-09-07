@@ -6,7 +6,7 @@
 /*   By: plinscho <plinscho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:59:36 by plinscho          #+#    #+#             */
-/*   Updated: 2023/09/06 14:47:10 by plinscho         ###   ########.fr       */
+/*   Updated: 2023/09/07 15:04:17 by plinscho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	input_parse(t_info *data, char **argv)
 {
 	int		i;
 	long	tmp;
-	
+
 	i = 1;
 	while (argv[i])
 	{
@@ -37,7 +37,7 @@ void	input_parse(t_info *data, char **argv)
 static int	check_num(char *argv)
 {
 	int	i;
-	
+
 	i = 0;
 	if (argv[0] == '-')
 		i++;
@@ -64,4 +64,35 @@ static int	check_rep(long tmp, char **argv, int i, t_info *data)
 		i++;
 	}
 	return (0);
+}
+
+long	ft_atoi(const char *str)
+{
+	long	i;
+	long	number;
+	int		sign;
+
+	i = 0;
+	number = 0;
+	sign = 1;
+	while (str[i] && (str[i] == 32 || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		number = (number * 10) + (str[i] - '0');
+		i++;
+	}
+	return (number * sign);
+}
+
+void	ft_error(void)
+{
+	write(1, "Error\n", 6);
+	exit(0);
 }
