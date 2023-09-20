@@ -6,17 +6,16 @@
 /*   By: plinscho <plinscho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:12:59 by plinscho          #+#    #+#             */
-/*   Updated: 2023/09/07 15:04:50 by plinscho         ###   ########.fr       */
+/*   Updated: 2023/09/20 21:45:22 by plinscho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void		data_init(t_info *data, int argc);
 static void	stack_init(t_node **stack_a, char **argv);
-void		print_stack(t_node **stack_a);
 int			check_sorted(t_node **stack_a);
+//void		print_stack(t_node **stack_a);
 
 int	main(int argc, char **argv)
 {
