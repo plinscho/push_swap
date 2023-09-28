@@ -6,7 +6,7 @@
 /*   By: plinscho <plinscho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:12:59 by plinscho          #+#    #+#             */
-/*   Updated: 2023/09/20 21:45:22 by plinscho         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:58:48 by plinscho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		data_init(t_info *data, int argc);
 static void	stack_init(t_node **stack_a, char **argv);
 int			check_sorted(t_node **stack_a);
-//void		print_stack(t_node **stack_a);
+void		check_argv(int argc, char *s);
 
 int	main(int argc, char **argv)
 {
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc < 3 || argv[1][0] == '\0')
-		return (1);
+		check_argv(argc, argv[1]);
 	data_init(&data, argc);
 	input_parse(&data, argv);
 	stack_init(&stack_a, argv);
@@ -40,6 +40,27 @@ int	main(int argc, char **argv)
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
+}
+
+void	check_argv(int argc, char *s)
+{
+	int	i;
+
+	if (argc < 2)
+		exit (1);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == '-' && (s[i + 1] <= '9' || s[i + 1] >= '0'))
+			i++;
+		else if (s[i] >= '0' && s[i] <= '9')
+			i++;
+		else
+		{
+			write(1, "Error\n", 6);
+			exit (1);
+		}
+	}
 }
 
 int	check_sorted(t_node **stack_a)
