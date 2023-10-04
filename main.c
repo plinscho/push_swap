@@ -6,7 +6,7 @@
 /*   By: plinscho <plinscho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:12:59 by plinscho          #+#    #+#             */
-/*   Updated: 2023/09/28 16:58:48 by plinscho         ###   ########.fr       */
+/*   Updated: 2023/10/04 18:29:34 by plinscho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,21 @@ void	check_argv(int argc, char *s)
 	if (argc < 2)
 		exit (1);
 	i = 0;
+	if (!s[i])
+		ft_error();
 	while (s[i])
 	{
-		if (s[i] == '-' && (s[i + 1] <= '9' || s[i + 1] >= '0'))
-			i++;
+		if (s[i] == '-' )
+		{
+			if ((s[i + 1]) && (s[i + 1] <= '9' || s[i + 1] >= '0'))
+				i++;
+			else
+				ft_error();
+		}
 		else if (s[i] >= '0' && s[i] <= '9')
 			i++;
 		else
-		{
-			write(1, "Error\n", 6);
-			exit (1);
-		}
+			ft_error();
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: plinscho <plinscho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:59:36 by plinscho          #+#    #+#             */
-/*   Updated: 2023/09/07 15:04:17 by plinscho         ###   ########.fr       */
+/*   Updated: 2023/10/04 18:12:46 by plinscho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,6 @@ long	ft_atoi(const char *str)
 
 void	ft_error(void)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(0);
 }
